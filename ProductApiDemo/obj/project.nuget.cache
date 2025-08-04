@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "2nlR3nNMLUI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\ProductApiDemo\\ProductApiDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ErvinYamitCASTELLANO\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.10\\microsoft.aspnetcore.openapi.8.0.10.nupkg.sha512",
+    "C:\\Users\\ErvinYamitCASTELLANO\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\ErvinYamitCASTELLANO\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\Users\\ErvinYamitCASTELLANO\\.nuget\\packages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
+    "C:\\Users\\ErvinYamitCASTELLANO\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
+    "C:\\Users\\ErvinYamitCASTELLANO\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
+    "C:\\Users\\ErvinYamitCASTELLANO\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.6.2\\swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://pkgs.dev.azure.com/chrcc/9bd5d4ea-47f9-46d0-a856-e60a33cc9dbb/_packaging/AwareMD-Utilities/nuget/v3/index.json."
+    }
+  ]
+}

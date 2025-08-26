@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .login-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .success {
+            color: rgb(15, 238, 15);
+        }
+        .error {
+            color: rgb(87, 16, 16);
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #00b327;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <div id="message"></div>
+        <input type="text" id="username" placeholder="Username"><br><br>
+        <input type="password" id="password" placeholder="Password"><br><br>
+        <button onclick="login()">Login</button>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+
+            // Demo credentials: user / password
+            if(username === "user" && password === "password") {
+                message.innerHTML = "<p class='success'>Login Successful!</p>";
+                document.body.style.backgroundColor = "#d4edda"; // cambia el fondo
+            } else {
+                message.innerHTML = "<p class='error'>Invalid credentials</p>";
+                document.body.style.backgroundColor = "#f8d7da"; // fondo rojo
+            }
+        }
+    </script>
+</body>
+</html>

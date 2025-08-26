@@ -1,0 +1,12 @@
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\ProductApiDemo.exe
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\appsettings.Development.json
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\appsettings.json
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\ProductApiDemo.dll
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\ProductApiDemo.deps.json
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\ProductApiDemo.runtimeconfig.json
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\ProductApiDemo.pdb
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\Microsoft.OpenApi.dll
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\publish\Swashbuckle.AspNetCore.SwaggerUI.dll

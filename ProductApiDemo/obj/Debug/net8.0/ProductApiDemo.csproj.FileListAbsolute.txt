@@ -19,11 +19,6 @@ C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\bin\Debug\net
 C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\staticwebassets\msbuild.ProductApiDemo.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\staticwebassets\msbuild.build.ProductApiDemo.props
-C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ProductApiDemo.props
-C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ProductApiDemo.props
-C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\scopedcss\bundle\ProductApiDemo.styles.css
 C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\ProductA.103128B2.Up2Date
 C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\ProductApiDemo.dll
@@ -31,3 +26,12 @@ C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net
 C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\ProductApiDemo.pdb
 C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\ProductApiDemo.genruntimeconfig.cache
 C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\ref\ProductApiDemo.dll
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\bin\Debug\net8.0\ProductApiDemo.staticwebassets.runtime.json
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\bin\Debug\net8.0\ProductApiDemo.staticwebassets.endpoints.json
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\ProductApiDemo.sourcelink.json
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\ErvinYamitCASTELLANO\Hackathon\TestAITools\ProductApiDemo\obj\Debug\net8.0\staticwebassets.build.endpoints.json

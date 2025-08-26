@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2nlR3nNMLUI=",
+  "dgSpecHash": "R1LmX2pBEBk=",
   "success": true,
   "projectFilePath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\ProductApiDemo\\ProductApiDemo.csproj",
   "expectedPackageFiles": [
@@ -16,8 +16,11 @@
     {
       "code": "NU1900",
       "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://pkgs.dev.azure.com/chrcc/9bd5d4ea-47f9-46d0-a856-e60a33cc9dbb/_packaging/AwareMD-Utilities/nuget/v3/index.json.",
+      "projectPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\ProductApiDemo\\ProductApiDemo.csproj",
       "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://pkgs.dev.azure.com/chrcc/9bd5d4ea-47f9-46d0-a856-e60a33cc9dbb/_packaging/AwareMD-Utilities/nuget/v3/index.json."
+      "filePath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\ProductApiDemo\\ProductApiDemo.csproj",
+      "targetGraphs": []
     }
   ]
 }

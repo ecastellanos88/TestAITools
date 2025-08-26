@@ -1,0 +1,33 @@
+name: Meticulous Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x' # ajusta a tu versión
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build project
+        run: dotnet publish -c Release -o ./publish
+
+      # Aquí tu sitio estático ya estaría en ./publish/wwwroot/demo
+
+      - name: Upload static site to Meticulous
+        uses: meticulous-ai/action@v1
+        with:
+          site-path: ./publish/wwwroot/demo
+          api-key: ${{ secrets.METICULOUS_API_KEY }}

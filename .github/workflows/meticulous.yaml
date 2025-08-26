@@ -29,7 +29,7 @@ jobs:
           dotnet-version: '8.0.x' # o la versión que uses en tu proyecto
 
       - name: Restore dependencies
-        run: dotnet restore ./src/TestAITools/ProductApiDemo.csproj
+        run: dotnet restore ./src/TestAITools/ProductApiDemo/ProductApiDemo.csproj
 
       - name: Build project
         run: dotnet build --configuration Release

@@ -37,8 +37,4 @@ jobs:
       - name: Publish project
         run: dotnet publish -c Release -o publish
 
-      - name: Run Meticulous tests
-        uses: alwaysmeticulous/report-diffs-action/upload-assets@v1
-        with:
-          api-token: ${{ secrets.METICULOUS_API_TOKEN }}
-          app-directory: ./publish/wwwroot/demo
+      

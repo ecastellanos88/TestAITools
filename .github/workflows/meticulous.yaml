@@ -33,8 +33,10 @@ jobs:
 
       - name: Build project
         run: dotnet build --configuration Release
+        working-directory: ./ProductApiDemo
 
       - name: Publish project
         run: dotnet publish -c Release -o publish
+        working-directory: ./ProductApiDemo
 
       

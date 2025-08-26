@@ -43,5 +43,5 @@ jobs:
         uses: alwaysmeticulous/report-diffs-action/upload-assets@v1
         with:
           api-token: ${{ secrets.METICULOUS_API_TOKEN }}
-          app-directory: ./ProductApiDemo/publish/wwwroot/demo
+          app-directory: ${{ github.workspace }}/ProductApiDemo/publish/wwwroot/demo
       

@@ -38,7 +38,10 @@ jobs:
       - name: Publish project
         run: dotnet publish -c Release -o publish
         working-directory: ./ProductApiDemo
-
+        
+      - name: List publish output
+        run: ls -R ${{ github.workspace }}/ProductApiDemo/publish/wwwroot/demo
+      
       - name: Run Meticulous tests
         uses: alwaysmeticulous/report-diffs-action/upload-assets@v1
         with:

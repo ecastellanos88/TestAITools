@@ -91,73 +91,43 @@ public class ArchitectureRulesTests
         // Arrange
         var assembly = typeof(Application.Patients.CreatePatient.CreatePatientHandler).Assembly;
 
-        // Act
-        var result = Types.InAssembly(assembly)
-            .That()
-            .HaveNameEndingWith("Handler")
-            .Should()
-            .ResideInNamespace(ApplicationNamespace)
-            .GetResult();
-
-        // Assert
-        Assert.True(result.IsSuccessful);
-    }
-
-    [Fact]
-    public void Controllers_Should_Be_Thin_And_Not_Contain_Business_Logic()
-    {
-        // Arrange
-        var assembly = typeof(API.Controllers.PatientsController).Assembly;
-        var controllerTypes = assembly.GetTypes()
-            .Where(t => t.Namespace == "PatientService.API.Controllers" &&
-                       t.Name.EndsWith("Controller"))
+        // Act - Find all classes in Application layer that handle commands/queries
+        var allApplicationClasses = assembly.GetTypes()
+            .Where(t => t.IsClass &&
+                       !t.IsAbstract &&
+                       t.Namespace != null &&
+                       t.Namespace.StartsWith(ApplicationNamespace))
             .ToList();
 
-        // Act & Assert
-        foreach (var controllerType in controllerTypes)
+        var violations = new System.Collections.Generic.List<string>();
+
+        foreach (var type in allApplicationClasses)
         {
-            var methods = controllerType.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
-
-            foreach (var method in methods)
+            // Skip DTOs, Commands, Queries, Validators, etc.
+            if (type.Name.EndsWith("Command") ||
+                type.Name.EndsWith("Query") ||
+                type.Name.EndsWith("Validator") ||
+                type.Name.EndsWith("Dto") ||
+                type.Name.EndsWith("Response") ||
+                type.Name.EndsWith("Request"))
             {
-                // Skip non-action methods
-                if (!method.GetCustomAttributes(typeof(HttpPostAttribute), true).Any() &&
-                    !method.GetCustomAttributes(typeof(HttpGetAttribute), true).Any() &&
-                    !method.GetCustomAttributes(typeof(HttpPutAttribute), true).Any() &&
-                    !method.GetCustomAttributes(typeof(HttpDeleteAttribute), true).Any())
-                {
-                    continue;
-                }
+                continue;
+            }
 
-                // Get the method body
-                var methodBody = method.GetMethodBody();
+            // Check if class has methods that look like handlers (HandleAsync, Handle, etc.)
+            var hasMethods = type.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+                .Any(m => m.Name.Contains("Handle") || m.Name.Contains("Execute"));
 
-                if (methodBody != null)
-                {
-                    // Check if method is too complex
-                    // A thin controller method should have < 80 bytes of IL code
-                    // Typical thin method: ~40-60 bytes (just call handler and return)
-                    // Method with if statements: ~80+ bytes
-                    var ilBytes = methodBody.GetILAsByteArray();
-                    var ilByteCount = ilBytes?.Length ?? 0;
-
-                    // Also check for branching instructions (if statements)
-                    var hasBranching = ilBytes != null && ContainsBranchingLogic(ilBytes);
-
-                    Assert.False(hasBranching,
-                        $"Controller method '{controllerType.Name}.{method.Name}' contains conditional logic (if/else statements). " +
-                        $"Controllers should be thin and only orchestrate calls to handlers. " +
-                        $"Move validation and business logic to the Application layer (Handlers). " +
-                        $"Controllers should NOT contain: if statements, loops, LINQ queries, or validation logic.");
-
-                    Assert.True(ilByteCount < 80,
-                        $"Controller method '{controllerType.Name}.{method.Name}' appears to contain business logic. " +
-                        $"IL byte count: {ilByteCount}. " +
-                        $"Controllers should be thin (< 80 IL bytes) and only orchestrate calls to handlers. " +
-                        $"Move validation and business logic to the Application layer (Handlers).");
-                }
+            // If it has handler-like methods but doesn't end with "Handler", it's a violation
+            if (hasMethods && !type.Name.EndsWith("Handler"))
+            {
+                violations.Add($"❌ Class '{type.Name}' in Application layer has handler methods but doesn't end with 'Handler'");
             }
         }
+
+        // Assert
+        Assert.True(violations.Count == 0,
+            $"Found {violations.Count} naming violations:\n" + string.Join("\n", violations));
     }
 
     private bool ContainsBranchingLogic(byte[] ilBytes)

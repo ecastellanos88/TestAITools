@@ -1,0 +1,306 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.API\\PatientService.API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.API\\PatientService.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.API\\PatientService.API.csproj",
+        "projectName": "PatientService.API",
+        "projectPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.API\\PatientService.API.csproj",
+        "packagesPath": "C:\\Users\\ErvinYamitCASTELLANO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\NuGet.Config",
+          "C:\\Users\\ErvinYamitCASTELLANO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Application\\PatientService.Application.csproj": {
+                "projectPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Application\\PatientService.Application.csproj"
+              },
+              "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Domain\\PatientService.Domain.csproj": {
+                "projectPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Domain\\PatientService.Domain.csproj"
+              },
+              "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Infrastructure\\PatientService.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Infrastructure\\PatientService.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Application\\PatientService.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Application\\PatientService.Application.csproj",
+        "projectName": "PatientService.Application",
+        "projectPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Application\\PatientService.Application.csproj",
+        "packagesPath": "C:\\Users\\ErvinYamitCASTELLANO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\NuGet.Config",
+          "C:\\Users\\ErvinYamitCASTELLANO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Domain\\PatientService.Domain.csproj": {
+                "projectPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Domain\\PatientService.Domain.csproj"
+              },
+              "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Infrastructure\\PatientService.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Infrastructure\\PatientService.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Domain\\PatientService.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Domain\\PatientService.Domain.csproj",
+        "projectName": "PatientService.Domain",
+        "projectPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Domain\\PatientService.Domain.csproj",
+        "packagesPath": "C:\\Users\\ErvinYamitCASTELLANO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\NuGet.Config",
+          "C:\\Users\\ErvinYamitCASTELLANO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Infrastructure\\PatientService.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Infrastructure\\PatientService.Infrastructure.csproj",
+        "projectName": "PatientService.Infrastructure",
+        "projectPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Infrastructure\\PatientService.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\ErvinYamitCASTELLANO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\NuGet.Config",
+          "C:\\Users\\ErvinYamitCASTELLANO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Domain\\PatientService.Domain.csproj": {
+                "projectPath": "C:\\Users\\ErvinYamitCASTELLANO\\Hackathon\\TestAITools\\patient-service-demo\\src\\PatientService.Domain\\PatientService.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

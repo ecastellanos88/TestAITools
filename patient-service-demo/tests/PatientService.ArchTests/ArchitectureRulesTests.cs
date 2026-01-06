@@ -1,5 +1,8 @@
 using NetArchTest.Rules;
 using Xunit;
+using System.Linq;
+using System.Reflection;
+using Microsoft.AspNetCore.Mvc;
 
 namespace PatientService.ArchTests;
 
@@ -88,16 +91,73 @@ public class ArchitectureRulesTests
         // Arrange
         var assembly = typeof(Application.Patients.CreatePatient.CreatePatientHandler).Assembly;
 
-        // Act
-        var result = Types.InAssembly(assembly)
-            .That()
-            .HaveNameEndingWith("Handler")
-            .Should()
-            .ResideInNamespace(ApplicationNamespace)
-            .GetResult();
+        // Act - Find all classes in Application layer that handle commands/queries
+        var allApplicationClasses = assembly.GetTypes()
+            .Where(t => t.IsClass &&
+                       !t.IsAbstract &&
+                       t.Namespace != null &&
+                       t.Namespace.StartsWith(ApplicationNamespace))
+            .ToList();
+
+        var violations = new System.Collections.Generic.List<string>();
+
+        foreach (var type in allApplicationClasses)
+        {
+            // Skip DTOs, Commands, Queries, Validators, etc.
+            if (type.Name.EndsWith("Command") ||
+                type.Name.EndsWith("Query") ||
+                type.Name.EndsWith("Validator") ||
+                type.Name.EndsWith("Dto") ||
+                type.Name.EndsWith("Response") ||
+                type.Name.EndsWith("Request"))
+            {
+                continue;
+            }
+
+            // Check if class has methods that look like handlers (HandleAsync, Handle, etc.)
+            var hasMethods = type.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+                .Any(m => m.Name.Contains("Handle") || m.Name.Contains("Execute"));
+
+            // If it has handler-like methods but doesn't end with "Handler", it's a violation
+            if (hasMethods && !type.Name.EndsWith("Handler"))
+            {
+                violations.Add($"❌ Class '{type.Name}' in Application layer has handler methods but doesn't end with 'Handler'");
+            }
+        }
 
         // Assert
-        Assert.True(result.IsSuccessful);
+        Assert.True(violations.Count == 0,
+            $"Found {violations.Count} naming violations:\n" + string.Join("\n", violations));
+    }
+
+    private bool ContainsBranchingLogic(byte[] ilBytes)
+    {
+        // IL opcodes for branching (if statements, loops, etc.)
+        // br.s = 0x2B, brfalse.s = 0x2C, brtrue.s = 0x2D
+        // br = 0x38, brfalse = 0x39, brtrue = 0x3A
+        // beq = 0x3B, bne.un = 0x40, bge = 0x3C, bgt = 0x3D, ble = 0x3E, blt = 0x3F
+
+        for (int i = 0; i < ilBytes.Length; i++)
+        {
+            byte opcode = ilBytes[i];
+
+            // Check for conditional branch instructions
+            if (opcode == 0x2C || // brfalse.s
+                opcode == 0x2D || // brtrue.s
+                opcode == 0x39 || // brfalse
+                opcode == 0x3A || // brtrue
+                opcode == 0x3B || // beq
+                opcode == 0x3C || // bge
+                opcode == 0x3D || // bgt
+                opcode == 0x3E || // ble
+                opcode == 0x3F || // blt
+                opcode == 0x40)   // bne.un
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 

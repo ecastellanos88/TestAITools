@@ -94,11 +94,34 @@ jobs:
         echo "✅ Validating code style..."
         echo "✅ Detecting code duplication..."
 
+  ai-code-review:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: AI Code Review
+      uses: coderabbitai/ai-pr-reviewer@latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      with:
+        debug: false
+        review_simple_changes: false
+        review_comment_lgtm: false
+
   pr-summary:
     runs-on: ubuntu-latest
     needs: [build-and-test, architecture-review, security-review, code-quality]
     if: github.event_name == 'pull_request'
-    
+
     steps:
     - name: PR Review Summary
       run: |
@@ -113,7 +136,7 @@ jobs:
         echo "- ✅ Code quality standards met" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "### 📋 Review Checklist" >> $GITHUB_STEP_SUMMARY
-        echo "- [ ] Code follows Clean Architecture" >> $GITHUB_STEP_SUMMARY
+        echo "- [ ] Code follows Clean Architecture" >> $GITHUB_STEP_STEP_SUMMARY
         echo "- [ ] Tests are comprehensive" >> $GITHUB_STEP_SUMMARY
         echo "- [ ] No security vulnerabilities" >> $GITHUB_STEP_SUMMARY
         echo "- [ ] Documentation updated" >> $GITHUB_STEP_SUMMARY

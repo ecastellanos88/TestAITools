@@ -91,7 +91,7 @@ public class ArchitectureRulesTests
         // Arrange
         var assembly = typeof(Application.Patients.CreatePatient.CreatePatientHandler).Assembly;
 
-        // Act - Find all classes in Application layer that handle commands/queries
+        // Act - Find all classes in Application layer
         var allApplicationClasses = assembly.GetTypes()
             .Where(t => t.IsClass &&
                        !t.IsAbstract &&
@@ -100,28 +100,46 @@ public class ArchitectureRulesTests
             .ToList();
 
         var violations = new System.Collections.Generic.List<string>();
+        var validSuffixes = new[] { "Command", "Query", "Validator", "Dto", "Response", "Request", "Handler", "Result", "Model" };
 
         foreach (var type in allApplicationClasses)
         {
-            // Skip DTOs, Commands, Queries, Validators, etc.
-            if (type.Name.EndsWith("Command") ||
-                type.Name.EndsWith("Query") ||
-                type.Name.EndsWith("Validator") ||
-                type.Name.EndsWith("Dto") ||
-                type.Name.EndsWith("Response") ||
-                type.Name.EndsWith("Request"))
+            // Skip compiler-generated classes (async state machines, etc.)
+            if (type.Name.Contains("<") || type.Name.Contains(">") ||
+                type.GetCustomAttributes(false).Any(a => a.GetType().Name.Contains("CompilerGenerated")))
             {
                 continue;
             }
 
-            // Check if class has methods that look like handlers (HandleAsync, Handle, etc.)
-            var hasMethods = type.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
-                .Any(m => m.Name.Contains("Handle") || m.Name.Contains("Execute"));
+            // Check if class is in a feature folder (e.g., CreatePatient, GetPatient, UpdatePatient)
+            // Feature folders typically contain: Command, Handler, Validator
+            var namespaceParts = type.Namespace?.Split('.') ?? Array.Empty<string>();
+            var isInFeatureFolder = namespaceParts.Length > 3; // e.g., PatientService.Application.Patients.CreatePatient
 
-            // If it has handler-like methods but doesn't end with "Handler", it's a violation
-            if (hasMethods && !type.Name.EndsWith("Handler"))
+            if (isInFeatureFolder)
             {
-                violations.Add($"❌ Class '{type.Name}' in Application layer has handler methods but doesn't end with 'Handler'");
+                // In feature folders, ALL classes must have a valid suffix
+                var hasValidSuffix = validSuffixes.Any(suffix => type.Name.EndsWith(suffix));
+
+                if (!hasValidSuffix)
+                {
+                    violations.Add(
+                        $"❌ Class '{type.Name}' in namespace '{type.Namespace}' doesn't follow naming conventions.\n" +
+                        $"   Classes in feature folders must end with: {string.Join(", ", validSuffixes)}\n" +
+                        $"   Example: If this handles commands, rename to '{type.Name}Handler'");
+                }
+            }
+            else
+            {
+                // Outside feature folders, check if class has handler-like methods
+                var hasMethods = type.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+                    .Any(m => m.Name.Contains("Handle") || m.Name.Contains("Execute"));
+
+                // If it has handler-like methods but doesn't end with "Handler", it's a violation
+                if (hasMethods && !type.Name.EndsWith("Handler"))
+                {
+                    violations.Add($"❌ Class '{type.Name}' has handler methods but doesn't end with 'Handler'");
+                }
             }
         }
 

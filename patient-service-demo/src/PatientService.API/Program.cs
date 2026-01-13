@@ -1,4 +1,5 @@
 using PatientService.Application.Patients.CreatePatient;
+using PatientService.Application.Patients.GetPatient;
 using PatientService.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddSwaggerGen();
 // Register application services
 builder.Services.AddSingleton<IPatientRepository, InMemoryPatientRepository>();
 builder.Services.AddScoped<CreatePatientHandler>();
+builder.Services.AddScoped<GetPatientHandler>();
 
 var app = builder.Build();
 

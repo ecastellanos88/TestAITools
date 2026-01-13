@@ -18,6 +18,25 @@ public class PatientsController : ControllerBase
     public async Task<IActionResult> Create([FromBody] CreatePatientCommand command)
     {
         var patient = await _createPatientHandler.HandleAsync(command);
+        if (command == null)
+        {
+            return BadRequest();
+        }
+    
+        if (patient != null)
+        {
+            try
+            {
+                Console.WriteLine("Patient created"); 
+            }
+            catch
+            {
+            }
+        }
+        else
+        {
+            return Ok(); 
+        }  
         return Ok(patient);
     }
 }

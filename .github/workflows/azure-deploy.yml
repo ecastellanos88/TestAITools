@@ -9,7 +9,7 @@ on:
 env:
   DOTNET_VERSION: '9.0.x'
   NODE_VERSION: '20.x'
-  AZURE_WEBAPP_NAME: 'patient-demo-ai-d4aybjafd7hsgafn'  # Your Azure App Service name
+  AZURE_WEBAPP_NAME: 'patient-demo-ai'  # Your Azure App Service name
   AZURE_WEBAPP_PACKAGE_PATH: './patient-service-demo/src/PatientService.API'
 
 jobs:

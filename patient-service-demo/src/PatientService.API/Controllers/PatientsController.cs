@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PatientService.Application.Patients.CreatePatient;
 using PatientService.Application.Patients.GetPatient;
+using PatientService.Application.Patients.GetAllPatients;
 
 namespace PatientService.API.Controllers;
 
@@ -10,13 +11,16 @@ public class PatientsController : ControllerBase
 {
     private readonly CreatePatientHandler _createPatientHandler;
     private readonly GetPatientHandler _getPatientHandler;
+    private readonly GetAllPatientsHandler _getAllPatientsHandler;
 
     public PatientsController(
         CreatePatientHandler createPatientHandler,
-        GetPatientHandler getPatientHandler)
+        GetPatientHandler getPatientHandler,
+        GetAllPatientsHandler getAllPatientsHandler)
     {
         _createPatientHandler = createPatientHandler;
         _getPatientHandler = getPatientHandler;
+        _getAllPatientsHandler = getAllPatientsHandler;
     }
 
     [HttpPost]
@@ -43,6 +47,14 @@ public class PatientsController : ControllerBase
             return Ok(); 
         }  
         return Ok(patient);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var query = new GetAllPatientsQuery();
+        var patients = await _getAllPatientsHandler.HandleAsync(query);
+        return Ok(patients);
     }
 
     [HttpGet("{id}")]

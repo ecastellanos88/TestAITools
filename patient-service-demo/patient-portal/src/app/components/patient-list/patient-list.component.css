@@ -1,0 +1,341 @@
+.patient-list-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.toolbar h2 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-icon {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.btn-retry {
+  background-color: white;
+  color: var(--error-color);
+  border: 1px solid var(--error-color);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-retry:hover {
+  background-color: var(--error-color);
+  color: white;
+}
+
+/* Loading */
+.loading-container {
+  text-align: center;
+  padding: 3rem;
+}
+
+.spinner {
+  border: 4px solid var(--border);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Alert */
+.alert {
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideIn 0.3s ease;
+}
+
+.alert-error {
+  background-color: #fee2e2;
+  border: 1px solid var(--error-color);
+  color: #991b1b;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--surface);
+  border-radius: 8px;
+  border: 2px dashed var(--border);
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  color: var(--primary-color);
+  margin: 0 0 0.5rem 0;
+}
+
+.empty-state p {
+  color: var(--secondary-color);
+  margin: 0 0 1.5rem 0;
+}
+
+/* Patients Grid */
+.patients-grid {
+  background-color: var(--surface);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.grid-header {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.75fr 1.5fr 1fr 1.5fr;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.grid-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.75fr 1.5fr 1fr 1.5fr;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.2s ease;
+}
+
+.grid-row:hover {
+  background-color: var(--background);
+}
+
+.grid-row:last-child {
+  border-bottom: none;
+}
+
+.grid-cell {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.email-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.email-link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Summary */
+.summary {
+  text-align: right;
+  padding: 1rem;
+  background-color: var(--background);
+  border-radius: 6px;
+  color: var(--secondary-color);
+}
+
+.summary strong {
+  color: var(--primary-color);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .grid-header,
+  .grid-row {
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr 1fr;
+  }
+
+  .grid-cell:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 968px) {
+  .grid-header,
+  .grid-row {
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+  }
+
+  .grid-cell:nth-child(3),
+  .grid-cell:nth-child(5) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar h2 {
+    text-align: center;
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .grid-header {
+    display: none;
+  }
+
+  .grid-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .grid-cell {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid-cell::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .grid-cell:nth-child(1)::before { content: "Name"; }
+  .grid-cell:nth-child(2)::before { content: "Date of Birth"; }
+  .grid-cell:nth-child(3)::before { content: "Age"; }
+  .grid-cell:nth-child(4)::before { content: "Email"; }
+  .grid-cell:nth-child(5)::before { content: "Phone"; }
+  .grid-cell:nth-child(6)::before { content: "Address"; }
+
+  .grid-cell:nth-child(3),
+  .grid-cell:nth-child(5),
+  .grid-cell:nth-child(6) {
+    display: flex;
+  }
+}
+

@@ -1,0 +1,90 @@
+<div class="patient-list-container">
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <h1>Patient Management Portal</h1>
+      <p class="subtitle">Healthcare Management System</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="toolbar">
+      <h2>Patients List</h2>
+      <button 
+        class="btn-primary" 
+        (click)="onAddPatient()"
+        type="button">
+        <span class="btn-icon">+</span>
+        Add New Patient
+      </button>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container">
+      <div class="spinner"></div>
+      <p>Loading patients...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="hasError && !isLoading" class="alert alert-error">
+      <strong>Error!</strong> {{ errorMessage }}
+      <button class="btn-retry" (click)="loadPatients()">Retry</button>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoading && !hasError && patients.length === 0" class="empty-state">
+      <div class="empty-icon">📋</div>
+      <h3>No Patients Found</h3>
+      <p>Get started by adding your first patient</p>
+      <button class="btn-primary" (click)="onAddPatient()">
+        <span class="btn-icon">+</span>
+        Add First Patient
+      </button>
+    </div>
+
+    <!-- Patients Grid -->
+    <div *ngIf="!isLoading && !hasError && patients.length > 0" class="patients-grid">
+      <div class="grid-header">
+        <div class="grid-cell">Name</div>
+        <div class="grid-cell">Date of Birth</div>
+        <div class="grid-cell">Age</div>
+        <div class="grid-cell">Email</div>
+        <div class="grid-cell">Phone</div>
+        <div class="grid-cell">Address</div>
+      </div>
+
+      <div class="grid-row" *ngFor="let patient of patients">
+        <div class="grid-cell">
+          <strong>{{ patient.firstName }} {{ patient.lastName }}</strong>
+        </div>
+        <div class="grid-cell">
+          {{ formatDate(patient.dateOfBirth) }}
+        </div>
+        <div class="grid-cell">
+          {{ getAge(patient.dateOfBirth) }} years
+        </div>
+        <div class="grid-cell">
+          <a [href]="'mailto:' + patient.email" class="email-link">{{ patient.email }}</a>
+        </div>
+        <div class="grid-cell">
+          {{ patient.phoneNumber }}
+        </div>
+        <div class="grid-cell">
+          {{ patient.address }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div *ngIf="!isLoading && !hasError && patients.length > 0" class="summary">
+      <p>Total Patients: <strong>{{ patients.length }}</strong></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2024 Patient Management Portal. All rights reserved.</p>
+  </div>
+</div>
+

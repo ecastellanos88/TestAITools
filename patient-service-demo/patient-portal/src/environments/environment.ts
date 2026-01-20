@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:5000/api'
+  production: true,
+  apiUrl: 'https://patient-demo-ai-d4aybjafd7hsgafn.canadacentral-01.azurewebsites.net/api'
 };
 

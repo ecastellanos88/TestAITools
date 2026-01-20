@@ -3,12 +3,9 @@ name: AI-Assisted Code Review
 on:
   pull_request:
     branches: [ main, develop ]
-    paths:
-      - 'patient-service-demo/**'
   push:
     branches: [ main, develop ]
-    paths:
-      - 'patient-service-demo/**'
+  workflow_dispatch:  # Allow manual trigger
 
 jobs:
   build-and-test:

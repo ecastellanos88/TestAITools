@@ -5,6 +5,8 @@ namespace PatientService.Infrastructure.Repositories;
 public interface IPatientRepository
 {
     Task<Patient> AddAsync(Patient patient);
+    Task<Patient?> GetByIdAsync(Guid id);
+    Task<IEnumerable<Patient>> GetAllAsync();
 }
 
 public class InMemoryPatientRepository : IPatientRepository
@@ -17,6 +19,17 @@ public class InMemoryPatientRepository : IPatientRepository
         patient.CreatedAt = DateTime.UtcNow;
         _patients.Add(patient);
         return Task.FromResult(patient);
+    }
+
+    public Task<Patient?> GetByIdAsync(Guid id)
+    {
+        var patient = _patients.FirstOrDefault(p => p.Id == id);
+        return Task.FromResult(patient);
+    }
+
+    public Task<IEnumerable<Patient>> GetAllAsync()
+    {
+        return Task.FromResult<IEnumerable<Patient>>(_patients.ToList());
     }
 }
 

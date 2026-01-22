@@ -1,15 +1,15 @@
 <div class="form-container">
   <div class="form-header">
-    <h1>Patient Registration</h1>
-    <p class="subtitle">Please fill in the patient information below</p>
+    <h1>{{ isEditMode ? 'Edit Patient' : 'Patient Registration' }}</h1>
+    <p class="subtitle">{{ isEditMode ? 'Update the patient information below' : 'Please fill in the patient information below' }}</p>
   </div>
 
   <!-- Success Message -->
   <div class="alert alert-success" *ngIf="submitSuccess">
     <div class="alert-icon">✓</div>
     <div class="alert-content">
-      <strong>Success!</strong> Patient created successfully.
-      <span *ngIf="createdPatientId"> ID: {{ createdPatientId }}</span>
+      <strong>Success!</strong> {{ isEditMode ? 'Patient updated successfully' : 'Patient created successfully' }}
+      <span *ngIf="createdPatientId && !isEditMode"> ID: {{ createdPatientId }}</span>
     </div>
   </div>
 
@@ -134,15 +134,15 @@
         (click)="resetForm()"
         [disabled]="isSubmitting"
       >
-        Reset
+        {{ isEditMode ? 'Cancel' : 'Reset' }}
       </button>
       <button
         type="submit"
         class="btn btn-primary"
         [disabled]="isSubmitting"
       >
-        <span *ngIf="!isSubmitting">Create Patient</span>
-        <span *ngIf="isSubmitting">Creating...</span>
+        <span *ngIf="!isSubmitting">{{ isEditMode ? 'Update Patient' : 'Create Patient' }}</span>
+        <span *ngIf="isSubmitting">{{ isEditMode ? 'Updating...' : 'Creating...' }}</span>
       </button>
     </div>
   </form>

@@ -52,6 +52,7 @@
         <div class="grid-cell">Email</div>
         <div class="grid-cell">Phone</div>
         <div class="grid-cell">Address</div>
+        <div class="grid-cell">Actions</div>
       </div>
 
       <div class="grid-row" *ngFor="let patient of patients">
@@ -72,6 +73,14 @@
         </div>
         <div class="grid-cell">
           {{ patient.address }}
+        </div>
+        <div class="grid-cell">
+          <button
+            class="btn-edit"
+            (click)="onEditPatient(patient.id!)"
+            type="button">
+            Edit
+          </button>
         </div>
       </div>
     </div>

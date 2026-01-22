@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using PatientService.Application.Patients.CreatePatient;
 using PatientService.Application.Patients.GetPatient;
 using PatientService.Application.Patients.GetAllPatients;
+using PatientService.Application.Patients.UpdatePatient;
 
 namespace PatientService.API.Controllers;
 
@@ -12,15 +13,18 @@ public class PatientsController : ControllerBase
     private readonly CreatePatientHandler _createPatientHandler;
     private readonly GetPatientHandler _getPatientHandler;
     private readonly GetAllPatientsHandler _getAllPatientsHandler;
+    private readonly UpdatePatientHandler _updatePatientHandler;
 
     public PatientsController(
         CreatePatientHandler createPatientHandler,
         GetPatientHandler getPatientHandler,
-        GetAllPatientsHandler getAllPatientsHandler)
+        GetAllPatientsHandler getAllPatientsHandler,
+        UpdatePatientHandler updatePatientHandler)
     {
         _createPatientHandler = createPatientHandler;
         _getPatientHandler = getPatientHandler;
         _getAllPatientsHandler = getAllPatientsHandler;
+        _updatePatientHandler = updatePatientHandler;
     }
 
     [HttpPost]
@@ -62,6 +66,24 @@ public class PatientsController : ControllerBase
     {
         var query = new GetPatientQuery(id);
         var patient = await _getPatientHandler.HandleAsync(query);
+
+        if (patient == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(patient);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(Guid id, [FromBody] UpdatePatientCommand command)
+    {
+        if (id != command.Id)
+        {
+            return BadRequest("ID mismatch");
+        }
+
+        var patient = await _updatePatientHandler.HandleAsync(command);
 
         if (patient == null)
         {

@@ -57,6 +57,10 @@ export class PatientListComponent implements OnInit, OnDestroy {
     this.router.navigate(['/patients/new']);
   }
 
+  onEditPatient(id: string): void {
+    this.router.navigate(['/patients/edit', id]);
+  }
+
   formatDate(dateString: string | undefined): string {
     if (!dateString) return '';
     const date = new Date(dateString);

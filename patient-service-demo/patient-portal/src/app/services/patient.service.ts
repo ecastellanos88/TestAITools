@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Patient, CreatePatientCommand } from '../models/patient.model';
+import { Patient, CreatePatientCommand, UpdatePatientCommand } from '../models/patient.model';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -29,6 +29,13 @@ export class PatientService {
 
   getAllPatients(): Observable<Patient[]> {
     return this.http.get<Patient[]>(this.apiUrl)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updatePatient(id: string, command: UpdatePatientCommand): Observable<Patient> {
+    return this.http.put<Patient>(`${this.apiUrl}/${id}`, command)
       .pipe(
         catchError(this.handleError)
       );
